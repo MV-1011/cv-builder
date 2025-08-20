@@ -1,0 +1,463 @@
+.academic-scholar-template {
+  font-family: 'Times New Roman', Georgia, serif;
+  max-width: 850px;
+  margin: 0 auto;
+  background: white;
+  color: #2c2c2c;
+  line-height: 1.5;
+  padding: 40px;
+}
+
+/* Header Section */
+.academic-header {
+  text-align: center;
+  border-bottom: 2px solid #1b5e20;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.scholar-name {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1b5e20;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.academic-title {
+  font-size: 18px;
+  color: #388e3c;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.contact-info-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.contact-detail {
+  color: #2c2c2c;
+}
+
+.contact-detail .label {
+  font-weight: bold;
+  color: #1b5e20;
+}
+
+.contact-detail a {
+  color: #388e3c;
+  text-decoration: none;
+}
+
+.contact-detail a:hover {
+  text-decoration: underline;
+}
+
+.address-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 13px;
+  color: #555;
+  flex-wrap: wrap;
+}
+
+.address-detail {
+  font-style: italic;
+}
+
+.website-detail .label {
+  font-weight: bold;
+  color: #1b5e20;
+  margin-right: 4px;
+}
+
+.website-detail a {
+  color: #388e3c;
+  text-decoration: none;
+}
+
+.website-detail a:hover {
+  text-decoration: underline;
+}
+
+/* Body Section */
+.academic-body {
+  margin-top: 30px;
+}
+
+/* Section Headings */
+.academic-section {
+  margin-bottom: 30px;
+}
+
+.section-heading {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1b5e20;
+  border-bottom: 1px solid #388e3c;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Professional Profile */
+.summary-text {
+  font-size: 14px;
+  text-align: justify;
+  color: #2c2c2c;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Education Section */
+.education-entry {
+  margin-bottom: 20px;
+}
+
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.edu-title {
+  flex: 1;
+}
+
+.degree-name {
+  font-size: 15px;
+  color: #1b5e20;
+}
+
+.field-study {
+  font-size: 15px;
+  color: #2c2c2c;
+}
+
+.edu-dates {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.institution-name {
+  font-size: 14px;
+  font-style: italic;
+  color: #388e3c;
+  margin-bottom: 4px;
+}
+
+.edu-details {
+  font-size: 13px;
+  color: #555;
+  margin-top: 4px;
+}
+
+.edu-description {
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* Experience Section */
+.experience-entry {
+  margin-bottom: 25px;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.exp-title {
+  flex: 1;
+}
+
+.position-name {
+  font-size: 15px;
+  color: #1b5e20;
+}
+
+.exp-dates {
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.institution-employer {
+  font-size: 14px;
+  font-style: italic;
+  color: #388e3c;
+  margin-bottom: 8px;
+}
+
+.location {
+  color: #666;
+}
+
+.exp-description {
+  font-size: 13px;
+  color: #2c2c2c;
+  margin: 8px 0;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.achievements-list {
+  margin: 10px 0 0 20px;
+  padding-left: 0;
+}
+
+.achievements-list li {
+  font-size: 13px;
+  color: #2c2c2c;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  list-style-type: disc;
+}
+
+/* Publications Section */
+.publication-entry {
+  margin-bottom: 20px;
+}
+
+.pub-title {
+  margin-bottom: 4px;
+}
+
+.pub-title strong {
+  font-size: 14px;
+  color: #1b5e20;
+}
+
+.pub-link {
+  margin-left: 8px;
+  color: #388e3c;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.pub-link:hover {
+  text-decoration: underline;
+}
+
+.pub-description {
+  font-size: 13px;
+  color: #2c2c2c;
+  margin: 6px 0;
+  text-align: justify;
+  line-height: 1.5;
+}
+
+.pub-keywords {
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.keywords-label {
+  font-weight: bold;
+  color: #1b5e20;
+  margin-right: 6px;
+}
+
+.keyword {
+  color: #555;
+  font-style: italic;
+}
+
+.pub-date {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Two Column Layout */
+.academic-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.left-column,
+.right-column {
+  min-width: 0;
+}
+
+/* Areas of Expertise */
+.expertise-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 15px;
+}
+
+.expertise-item {
+  font-size: 13px;
+}
+
+.expertise-name {
+  color: #2c2c2c;
+}
+
+.expertise-level {
+  color: #666;
+  font-style: italic;
+  margin-left: 4px;
+}
+
+/* Certifications */
+.certification-entry {
+  margin-bottom: 12px;
+}
+
+.cert-title {
+  font-size: 14px;
+  color: #1b5e20;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.cert-details {
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+}
+
+.cert-link {
+  font-size: 12px;
+  color: #388e3c;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.cert-link:hover {
+  text-decoration: underline;
+}
+
+/* Languages */
+.languages-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.language-entry {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.lang-name {
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+.lang-level {
+  color: #555;
+  font-style: italic;
+}
+
+/* References */
+.reference-entry {
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+
+.ref-name {
+  font-weight: bold;
+  color: #1b5e20;
+  margin-bottom: 2px;
+}
+
+.ref-position {
+  color: #2c2c2c;
+  margin-bottom: 2px;
+}
+
+.ref-company {
+  color: #555;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.ref-contact {
+  color: #666;
+  font-size: 12px;
+}
+
+/* Print Styles */
+@media print {
+  .academic-scholar-template {
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .academic-header {
+    border-bottom-color: #1b5e20 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .section-heading {
+    border-bottom-color: #388e3c !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .academic-columns {
+    break-inside: avoid;
+  }
+  
+  .academic-section {
+    break-inside: avoid;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .academic-scholar-template {
+    padding: 20px;
+  }
+  
+  .scholar-name {
+    font-size: 24px;
+  }
+  
+  .contact-info-row,
+  .address-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .edu-header,
+  .exp-header {
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .edu-dates,
+  .exp-dates {
+    margin-top: 4px;
+  }
+  
+  .academic-columns {
+    grid-template-columns: 1fr;
+  }
+}

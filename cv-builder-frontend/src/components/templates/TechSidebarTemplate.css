@@ -1,0 +1,413 @@
+.tech-sidebar-template {
+  font-family: 'Source Code Pro', 'Courier New', monospace;
+  background: #f8fafc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex: 1;
+}
+
+.tech-left-sidebar {
+  width: 280px;
+  background: #343a40;
+  color: white;
+  padding: 30px 20px;
+  position: relative;
+  border-right: 4px solid #495057;
+}
+
+.tech-left-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.tech-profile {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.tech-avatar {
+  width: 80px;
+  height: 80px;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+}
+
+.tech-profile h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.tech-role {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0;
+  font-style: italic;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.tech-sidebar-section {
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
+}
+
+.tech-sidebar-section h3 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-icon {
+  font-size: 1rem;
+}
+
+.tech-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tech-contact-item {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.tech-contact-item strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+}
+
+.tech-contact-item a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+
+.tech-contact-item a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.tech-skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tech-skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-name {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.skill-level {
+  width: 100%;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.tech-education-item {
+  margin-bottom: 20px;
+}
+
+.tech-education-item h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+
+.tech-education-item p {
+  font-size: 0.8rem;
+  margin: 0 0 4px 0;
+  opacity: 0.9;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.tech-education-item strong {
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.tech-edu-year {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.tech-gpa {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.tech-main-content {
+  flex: 1;
+  padding: 30px;
+  background: white;
+}
+
+.tech-main-section {
+  margin-bottom: 35px;
+}
+
+.tech-section-title {
+  color: #0d47a1;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+  font-family: 'Source Code Pro', monospace;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title-bracket {
+  color: #2196f3;
+  font-size: 1.4rem;
+}
+
+.tech-experience-item {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.tech-experience-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, #0d47a1, #2196f3);
+  border-radius: 4px 0 0 4px;
+}
+
+.tech-exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.tech-exp-header h3 {
+  color: #0d47a1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.tech-company {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.tech-company strong {
+  color: #2196f3;
+}
+
+.tech-date-badge {
+  background: linear-gradient(135deg, #0d47a1, #2196f3);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.tech-description {
+  color: #475569;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.tech-achievements {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.tech-achievements li {
+  color: #475569;
+  margin-bottom: 6px;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.achievement-bullet {
+  color: #2196f3;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.tech-projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.tech-project-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tech-project-card:hover {
+  border-color: #2196f3;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.tech-project-card h3 {
+  color: #0d47a1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.project-link {
+  color: #2196f3;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #0d47a1;
+}
+
+.project-description {
+  color: #475569;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.tech-stack {
+  margin-top: 15px;
+}
+
+.tech-stack-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0d47a1;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-tag {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  color: #0d47a1;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border: 1px solid rgba(13, 71, 161, 0.2);
+  font-family: 'Source Code Pro', monospace;
+}
+
+@media (max-width: 768px) {
+  .tech-sidebar-template {
+    flex-direction: column;
+  }
+  
+  .tech-left-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 4px solid #495057;
+  }
+  
+  .tech-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .tech-sidebar-template {
+    box-shadow: none;
+    margin: 0;
+  }
+}

@@ -1,0 +1,490 @@
+.sales-executive-template {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: white;
+  color: #2c3e50;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sales-header {
+  background: linear-gradient(135deg, #4a90e2 0%, #6c5ce7 50%, #a29bfe 100%);
+  color: white;
+  padding: 0 0 50px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sales-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.sales-header::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.sales-executive-template .header-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 50px 50px 50px;
+  text-align: center;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.sales-executive-template .name-section {
+  width: 100%;
+}
+
+.sales-executive-template .name-section h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1.5px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-transform: uppercase;
+}
+
+.sales-executive-template .header-bottom {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+.sales-executive-template .summary-section {
+  flex: 1.5;
+  max-width: 550px;
+  min-width: 350px;
+}
+
+.sales-executive-template .sales-title {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.95;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.sales-executive-template .contact-section {
+  flex: 1;
+  max-width: 350px;
+  min-width: 280px;
+}
+
+.contact-bar {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-weight: 400;
+  justify-content: flex-start;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item .icon {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-item a:hover {
+  text-decoration: none;
+}
+
+.sales-body {
+  padding: 40px 50px;
+  flex: 1;
+}
+
+.sales-section {
+  margin-bottom: 35px;
+}
+
+.highlight-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #667eea;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #667eea;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.executive-summary {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #2c3e50;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.sales-experience-item {
+  margin-bottom: 35px;
+  padding: 25px;
+  background: #fafbfc;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.exp-left h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+}
+
+.company-info {
+  font-size: 1.05rem;
+  color: #667eea;
+  margin: 0;
+}
+
+.company-info strong {
+  font-weight: 600;
+}
+
+.exp-right .period {
+  background: #667eea;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.role-description {
+  color: #34495e;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.achievements-section h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #667eea;
+  margin: 0 0 12px 0;
+}
+
+.sales-achievements {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sales-achievements li {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #34495e;
+  line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.achievement-marker {
+  color: #27ae60;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.sales-columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.accounts-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.account-card {
+  padding: 20px;
+  background: white;
+  border: 2px solid #e8edf5;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.account-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.account-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+}
+
+.account-card p {
+  color: #34495e;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.industries {
+  margin-top: 10px;
+}
+
+.industries strong {
+  font-size: 0.9rem;
+  color: #667eea;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.industry-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.industry-tag {
+  font-size: 0.8rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 15px;
+}
+
+.competencies-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.competency-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: #f8f9fc;
+  border-radius: 8px;
+  border: 1px solid #e8edf5;
+}
+
+.competency-icon {
+  color: #ffd700;
+  font-size: 1rem;
+}
+
+.competency-name {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.competency-level {
+  width: 80px;
+}
+
+.level-bar {
+  height: 6px;
+  background: #e8edf5;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.level-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.education-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fc;
+  border-radius: 8px;
+  border-left: 3px solid #764ba2;
+}
+
+.education-card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 5px 0;
+}
+
+.education-card .field {
+  font-size: 0.95rem;
+  color: #667eea;
+  margin: 0 0 5px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.education-card .institution {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #34495e;
+  margin: 0 0 5px 0;
+}
+
+.education-card .edu-period {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.education-card .performance {
+  font-size: 0.85rem;
+  color: #27ae60;
+  font-weight: 600;
+  margin: 5px 0 0 0;
+}
+
+.metrics-section {
+  margin-top: 40px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 10px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.metric-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.metric-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #667eea;
+  margin: 0 0 8px 0;
+}
+
+.metric-card p {
+  font-size: 0.85rem;
+  color: #34495e;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .sales-columns {
+    grid-template-columns: 1fr;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sales-body {
+    padding: 30px 20px;
+  }
+}
+
+@media print {
+  .sales-executive-template {
+    box-shadow: none;
+    margin: 0;
+  }
+  
+  .sales-header {
+    padding: 30px 40px;
+  }
+  
+  .sales-body {
+    padding: 30px 40px;
+  }
+}

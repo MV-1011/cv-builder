@@ -1,0 +1,162 @@
+.resume-preview {
+  background-color: white;
+  padding: 40px;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Georgia', serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #2c3e50;
+  padding-bottom: 20px;
+}
+
+.resume-header h1 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+  align-items: center;
+}
+
+.contact-info span:not(:last-child)::after {
+  content: '|';
+  margin-left: 15px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.social-links a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.resume-section {
+  margin-bottom: 25px;
+}
+
+.resume-section h2 {
+  color: #2c3e50;
+  font-size: 18px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.experience-item,
+.education-item,
+.project-item {
+  margin-bottom: 20px;
+}
+
+.experience-header,
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.experience-header h3,
+.education-header h3,
+.project-item h3 {
+  color: #34495e;
+  font-size: 16px;
+  margin: 0;
+}
+
+.date-range {
+  color: #7f8c8d;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.company-location {
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.experience-item p,
+.education-item p,
+.project-item p {
+  color: #555;
+  line-height: 1.6;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.experience-item ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.experience-item li {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-item {
+  background-color: #ecf0f1;
+  color: #34495e;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+.skill-level {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.project-tech {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.project-item a {
+  color: #3498db;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.project-item a:hover {
+  text-decoration: underline;
+}

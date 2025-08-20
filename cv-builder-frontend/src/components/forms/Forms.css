@@ -1,0 +1,238 @@
+.form-container {
+  max-width: 100%;
+}
+
+.form-container h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+.existing-items {
+  margin-bottom: 30px;
+}
+
+.item-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item-header h4 {
+  color: #2c3e50;
+  margin: 0;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.add-new-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.add-new-section h3 {
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.add-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+.add-btn:hover {
+  background-color: #27ae60;
+}
+
+.input-with-button {
+  display: flex;
+  gap: 10px;
+}
+
+.add-small-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.add-small-btn:hover {
+  background-color: #2980b9;
+}
+
+.achievements-list,
+.tech-list {
+  margin-bottom: 10px;
+}
+
+.achievement-item {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-small-btn,
+.remove-chip-btn {
+  background-color: transparent;
+  color: #e74c3c;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.skill-chip,
+.tech-chip {
+  background-color: #3498db;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-level {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.tech-tag {
+  background-color: #ecf0f1;
+  color: #34495e;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.skill-suggestions {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+}
+
+.skill-suggestions h4 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.suggestion-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.suggestion-category h5 {
+  color: #34495e;
+  margin-bottom: 5px;
+}
+
+.suggestion-category p {
+  color: #7f8c8d;
+  font-size: 14px;
+  line-height: 1.5;
+}

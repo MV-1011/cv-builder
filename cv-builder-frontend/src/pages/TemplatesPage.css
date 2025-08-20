@@ -1,0 +1,130 @@
+.templates-page {
+  min-height: calc(100vh - 60px);
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+}
+
+.templates-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.templates-header h1 {
+  font-size: 36px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.templates-header p {
+  font-size: 18px;
+  color: #7f8c8d;
+}
+
+.templates-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.template-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.template-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.template-preview-container {
+  height: 280px;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+  position: relative;
+  background: #f8fafc;
+}
+
+.mini-preview {
+  transform: scale(0.5);
+  transform-origin: top left;
+  width: 200%;
+  height: 200%;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mini-preview > * {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-height: 100vh !important;
+}
+
+.template-info {
+  padding: 20px;
+}
+
+.template-info h3 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.template-info p {
+  color: #7f8c8d;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.template-meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.template-category {
+  background-color: #ecf0f1;
+  color: #34495e;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.premium-badge {
+  background-color: #f39c12;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.use-template-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.use-template-btn:hover {
+  background-color: #2980b9;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #7f8c8d;
+}

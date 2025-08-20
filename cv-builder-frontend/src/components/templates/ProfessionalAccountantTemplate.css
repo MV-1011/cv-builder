@@ -1,0 +1,425 @@
+.professional-accountant-template {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: white;
+  color: #2c3e50;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.accountant-header {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  gap: 30px;
+  min-height: fit-content;
+}
+
+.accountant-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+}
+
+.header-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-main h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.professional-title {
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.95;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.4;
+}
+
+.header-contact {
+  flex-shrink: 0;
+  min-width: 280px;
+  max-width: 320px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 18px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  min-height: 24px;
+  width: 100%;
+}
+
+.contact-label {
+  font-weight: 600;
+  min-width: 75px;
+  max-width: 75px;
+  display: flex;
+  align-items: center;
+  margin-right: -25px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.contact-item a:hover {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
+.contact-item span:not(.contact-label) {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.accountant-body {
+  padding: 40px 50px;
+  flex: 1;
+}
+
+.accountant-section {
+  margin-bottom: 35px;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e3c72;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8f4f8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-icon {
+  font-size: 1.2rem;
+}
+
+.professional-summary {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #34495e;
+  text-align: justify;
+  text-justify: inter-word;
+  padding: 15px;
+  background: #f8fbfd;
+  border-left: 3px solid #2a5298;
+  border-radius: 4px;
+}
+
+.experience-item {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #fafbfc;
+  border-radius: 8px;
+  border: 1px solid #e1e8ed;
+}
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.exp-title h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1e3c72;
+  margin: 0 0 5px 0;
+}
+
+.company-name {
+  font-size: 1.05rem;
+  color: #2a5298;
+  font-weight: 500;
+  margin: 0;
+}
+
+.exp-period {
+  text-align: right;
+}
+
+.date-badge {
+  display: inline-block;
+  background: #1e3c72;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.location {
+  display: block;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+.exp-description {
+  color: #34495e;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.key-achievements h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2a5298;
+  margin: 0 0 10px 0;
+}
+
+.achievements-list {
+  margin: 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.achievements-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: #34495e;
+  line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.achievements-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.two-column-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.education-item {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #f8fbfd;
+  border-radius: 6px;
+  border-left: 3px solid #ffd700;
+}
+
+.education-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3c72;
+  margin: 0 0 5px 0;
+}
+
+.field {
+  font-size: 0.95rem;
+  color: #2a5298;
+  margin: 0 0 5px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.institution {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #34495e;
+  margin: 0 0 5px 0;
+}
+
+.edu-period {
+  font-size: 0.85rem;
+  color: #7f8c8d;
+  margin: 0;
+}
+
+.gpa {
+  font-size: 0.85rem;
+  color: #27ae60;
+  font-weight: 600;
+  margin: 5px 0 0 0;
+}
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-category h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2a5298;
+  margin: 0 0 10px 0;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: #f0f7fb;
+  border-radius: 20px;
+  border: 1px solid #d4e6f1;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  color: #34495e;
+  font-weight: 500;
+}
+
+.skill-level {
+  font-size: 0.8rem;
+  color: #1e3c72;
+  font-weight: 600;
+  background: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.project-item {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #fafbfc;
+  border-radius: 6px;
+  border: 1px solid #e1e8ed;
+}
+
+.project-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e3c72;
+  margin: 0 0 10px 0;
+}
+
+.project-description {
+  color: #34495e;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.project-tools {
+  margin-top: 10px;
+}
+
+.project-tools strong {
+  font-size: 0.9rem;
+  color: #2a5298;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tool-tag {
+  font-size: 0.8rem;
+  background: #e8f4f8;
+  color: #1e3c72;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid #c8e6f5;
+}
+
+@media (max-width: 768px) {
+  .accountant-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .two-column-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .accountant-body {
+    padding: 30px 20px;
+  }
+}
+
+@media print {
+  .professional-accountant-template {
+    box-shadow: none;
+    margin: 0;
+  }
+  
+  .accountant-header {
+    padding: 30px 40px;
+  }
+  
+  .accountant-body {
+    padding: 30px 40px;
+  }
+}

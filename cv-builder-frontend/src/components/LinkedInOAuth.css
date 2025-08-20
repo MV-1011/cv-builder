@@ -1,0 +1,229 @@
+.linkedin-oauth {
+  background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 119, 181, 0.3);
+}
+
+.linkedin-oauth-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.linkedin-icon {
+  font-size: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+
+.linkedin-oauth-header h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.linkedin-oauth-header p {
+  margin: 5px 0 0 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.linkedin-oauth-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.oauth-description h4 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+}
+
+.oauth-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.oauth-description li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.oauth-note {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.oauth-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.linkedin-signin-button {
+  background: white;
+  color: #0077b5;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin-signin-button:hover:not(:disabled) {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.linkedin-signin-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.linkedin-logo {
+  background: #0077b5;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #0077b5;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message,
+.success-message {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.error-message {
+  background: rgba(220, 53, 69, 0.2);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+}
+
+.success-message {
+  background: rgba(40, 167, 69, 0.2);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.error-icon,
+.success-icon {
+  font-size: 16px;
+}
+
+.oauth-privacy {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+.config-message {
+  background: rgba(255, 193, 7, 0.2);
+  border: 1px solid rgba(255, 193, 7, 0.4);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.config-message ol {
+  margin: 15px 0 0 0;
+  padding-left: 20px;
+}
+
+.config-message li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.config-message code {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.config-message a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.linkedin-oauth-loading {
+  background: rgba(0, 119, 181, 0.1);
+  border: 1px solid rgba(0, 119, 181, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  color: #0077b5;
+  margin-bottom: 30px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .linkedin-oauth-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .linkedin-oauth-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .linkedin-signin-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
