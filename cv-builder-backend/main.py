@@ -7,18 +7,35 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-from routers import templates, resumes, users, linkedin
-from database import db, get_mongo_uri
+try:
+    from routers import templates, resumes, users, linkedin
+    ROUTERS_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Could not import routers: {e}")
+    ROUTERS_AVAILABLE = False
+
+try:
+    from database import db, get_mongo_uri
+    DATABASE_AVAILABLE = True
+except ImportError as e:
+    print(f"Warning: Could not import database: {e}")
+    DATABASE_AVAILABLE = False
 
 load_dotenv()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    mongo_uri = get_mongo_uri()
-    db.client = AsyncIOMotorClient(mongo_uri)
-    db.database = db.client[os.getenv("DATABASE_NAME")]
+    if DATABASE_AVAILABLE:
+        try:
+            mongo_uri = get_mongo_uri()
+            db.client = AsyncIOMotorClient(mongo_uri)
+            db.database = db.client[os.getenv("DATABASE_NAME")]
+            print("Database connection initialized")
+        except Exception as e:
+            print(f"Database connection failed: {e}")
     yield
-    db.client.close()
+    if DATABASE_AVAILABLE and hasattr(db, 'client'):
+        db.client.close()
 
 app = FastAPI(title="CV Builder API", version="1.0.0", lifespan=lifespan)
 
@@ -39,22 +56,44 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(templates.router, prefix="/api/templates", tags=["templates"])
-app.include_router(resumes.router, prefix="/api/resumes", tags=["resumes"])
-app.include_router(users.router, prefix="/api/users", tags=["users"])
-app.include_router(linkedin.router, prefix="/api/linkedin", tags=["linkedin"])
+if ROUTERS_AVAILABLE:
+    app.include_router(templates.router, prefix="/api/templates", tags=["templates"])
+    app.include_router(resumes.router, prefix="/api/resumes", tags=["resumes"])
+    app.include_router(users.router, prefix="/api/users", tags=["users"])
+    app.include_router(linkedin.router, prefix="/api/linkedin", tags=["linkedin"])
+    print("All routers loaded successfully")
+else:
+    print("Running in minimal mode - some routes may not be available")
 
 @app.get("/")
 async def root():
-    return {"message": "CV Builder API is running", "status": "healthy", "docs": "/docs"}
+    return {
+        "message": "CV Builder API is running", 
+        "status": "healthy", 
+        "docs": "/docs",
+        "routers_loaded": ROUTERS_AVAILABLE,
+        "database_available": DATABASE_AVAILABLE
+    }
 
 @app.get("/api")
 async def api_root():
-    return {"message": "CV Builder API is running"}
+    return {"message": "CV Builder API is running", "endpoints": ["/health", "/docs", "/api/templates", "/api/resumes", "/api/users", "/api/linkedin"]}
 
 @app.get("/health")
 async def health_check():
     return {"status": "healthy"}
+
+@app.get("/debug")
+async def debug_info():
+    return {
+        "routers_available": ROUTERS_AVAILABLE,
+        "database_available": DATABASE_AVAILABLE,
+        "environment_vars": {
+            "DATABASE_NAME": os.getenv("DATABASE_NAME", "not_set"),
+            "MONGO_URI": "***set***" if os.getenv("MONGO_URI") else "not_set",
+            "PORT": os.getenv("PORT", "not_set")
+        }
+    }
 
 # Check if React build exists and serve it
 frontend_build_path = Path(__file__).parent.parent / "cv-builder-frontend" / "build"
