@@ -33,7 +33,8 @@ const TemplatePreviewPage: React.FC = () => {
 
   useEffect(() => {
     fetchTemplate();
-  }, [fetchTemplate]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [templateId]);
 
   const getDefaultTemplate = (id: string): Template => {
     const defaultTemplates: { [key: string]: Template } = {
