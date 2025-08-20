@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ResumePreview from '../components/ResumePreview';
 import { Resume, Template } from '../types';
@@ -10,11 +10,7 @@ const TemplatePreviewPage: React.FC = () => {
   const [template, setTemplate] = useState<Template | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchTemplate();
-  }, [templateId]);
-
-  const fetchTemplate = async () => {
+  const fetchTemplate = useCallback(async () => {
     try {
       const response = await fetch(`http://localhost:8001/api/templates/${templateId}`);
       if (response.ok) {
@@ -33,7 +29,11 @@ const TemplatePreviewPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [templateId]);
+
+  useEffect(() => {
+    fetchTemplate();
+  }, [fetchTemplate]);
 
   const getDefaultTemplate = (id: string): Template => {
     const defaultTemplates: { [key: string]: Template } = {
