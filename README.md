@@ -1,2 +1,2 @@
 # cv-builder
-A public web application made for helping create CVs for different professions.
+Full-stack CV builder with React frontend and FastAPI backend, featuring LinkedIn integration and multiple resume templates.
