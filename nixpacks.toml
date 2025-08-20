@@ -1,9 +1,10 @@
-[phases.setup]
-nixPkgs = ['nodejs', 'python39']
+[providers]
+python = "3.11"
+nodejs = "18"
 
 [phases.install]
 cmds = [
-    'cd cv-builder-backend && pip install -r requirements.txt',
+    'pip install -r requirements.txt',
     'cd cv-builder-frontend && npm ci'
 ]
 
