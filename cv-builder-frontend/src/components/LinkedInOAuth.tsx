@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Resume } from '../types';
+import { API_BASE_URL } from '../utils/api';
 import './LinkedInOAuth.css';
 
 interface Props {
@@ -32,7 +33,7 @@ const LinkedInOAuth: React.FC<Props> = ({ onImportSuccess }) => {
     setSuccess(false);
 
     try {
-      const response = await fetch('http://localhost:8000/api/linkedin/oauth/login');
+      const response = await fetch('${API_BASE_URL}/api/linkedin/oauth/login');
       const data = await response.json();
 
       if (data.auth_url) {
@@ -54,7 +55,7 @@ const LinkedInOAuth: React.FC<Props> = ({ onImportSuccess }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/linkedin/oauth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`
+        `${API_BASE_URL}/api/linkedin/oauth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state)}`
       );
 
       const data = await response.json();
@@ -81,7 +82,7 @@ const LinkedInOAuth: React.FC<Props> = ({ onImportSuccess }) => {
 
   const isConfigured = async (): Promise<boolean> => {
     try {
-      const response = await fetch('http://localhost:8000/api/linkedin/oauth/login');
+      const response = await fetch('${API_BASE_URL}/api/linkedin/oauth/login');
       return response.status !== 500;
     } catch {
       return false;

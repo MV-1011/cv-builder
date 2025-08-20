@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ResumePreview from '../components/ResumePreview';
 import { Resume, Template } from '../types';
+import { API_BASE_URL } from '../utils/api';
 import './TemplatePreviewPage.css';
 
 const TemplatePreviewPage: React.FC = () => {
@@ -12,7 +13,7 @@ const TemplatePreviewPage: React.FC = () => {
 
   const fetchTemplate = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:8001/api/templates/${templateId}`);
+      const response = await fetch(`${API_BASE_URL}/api/templates/${templateId}`);
       if (response.ok) {
         const data = await response.json();
         setTemplate(data);

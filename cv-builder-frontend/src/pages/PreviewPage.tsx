@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Resume } from '../types';
 import ResumePreview from '../components/ResumePreview';
+import { API_BASE_URL } from '../utils/api';
 import './PreviewPage.css';
 
 const PreviewPage: React.FC = () => {
@@ -18,7 +19,7 @@ const PreviewPage: React.FC = () => {
 
   const fetchResume = async () => {
     try {
-      const response = await fetch(`http://localhost:8000/api/resumes/${resumeId}`);
+      const response = await fetch(`${API_BASE_URL}/api/resumes/${resumeId}`);
       if (response.ok) {
         const data = await response.json();
         setResume(data);
@@ -31,7 +32,7 @@ const PreviewPage: React.FC = () => {
   };
 
   const handleDownload = () => {
-    window.open(`http://localhost:8000/api/resumes/${resumeId}/download`, '_blank');
+    window.open(`${API_BASE_URL}/api/resumes/${resumeId}/download`, '_blank');
   };
 
   const handleEdit = () => {

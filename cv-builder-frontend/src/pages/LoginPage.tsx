@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { API_BASE_URL } from '../utils/api';
 import './AuthPages.css';
 
 const LoginPage: React.FC = () => {
@@ -19,7 +20,7 @@ const LoginPage: React.FC = () => {
       formDataToSend.append('username', formData.username);
       formDataToSend.append('password', formData.password);
 
-      const response = await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/api/users/login`, {
+      const response = await fetch(`${API_BASE_URL}/api/users/login`, {
         method: 'POST',
         body: formDataToSend
       });

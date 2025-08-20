@@ -6,6 +6,7 @@ import ExperienceForm from '../components/forms/ExperienceForm';
 import EducationForm from '../components/forms/EducationForm';
 import SkillsForm from '../components/forms/SkillsForm';
 import ProjectsForm from '../components/forms/ProjectsForm';
+import { API_BASE_URL } from '../utils/api';
 import './BuilderPage.css';
 
 const BuilderPage: React.FC = () => {
@@ -207,7 +208,7 @@ const BuilderPage: React.FC = () => {
         }
       };
       
-      const response = await fetch('http://localhost:8000/api/resumes/', {
+      const response = await fetch(`${API_BASE_URL}/api/resumes/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -248,7 +249,7 @@ const BuilderPage: React.FC = () => {
         }
       };
       
-      const response = await fetch('http://localhost:8000/api/resumes/', {
+      const response = await fetch(`${API_BASE_URL}/api/resumes/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -258,7 +259,7 @@ const BuilderPage: React.FC = () => {
 
       if (response.ok) {
         const savedResume = await response.json();
-        window.open(`http://localhost:8000/api/resumes/${savedResume._id}/download`, '_blank');
+        window.open(`${API_BASE_URL}/api/resumes/${savedResume._id}/download`, '_blank');
       } else {
         const errorData = await response.json();
         console.error('Error downloading PDF:', errorData);
