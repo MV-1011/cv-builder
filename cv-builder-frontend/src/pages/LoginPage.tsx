@@ -19,7 +19,7 @@ const LoginPage: React.FC = () => {
       formDataToSend.append('username', formData.username);
       formDataToSend.append('password', formData.password);
 
-      const response = await fetch('http://localhost:8000/api/users/login', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL || window.location.origin}/api/users/login`, {
         method: 'POST',
         body: formDataToSend
       });
