@@ -5,6 +5,11 @@ const getApiUrl = (): string => {
     return process.env.REACT_APP_API_URL;
   }
   
+  // In production (on Vercel), use the Railway backend URL
+  if (process.env.NODE_ENV === 'production') {
+    return 'https://web-production-8e7a6.up.railway.app';
+  }
+  
   // Fallback to localhost for development
   return 'http://localhost:8000';
 };
