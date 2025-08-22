@@ -13,31 +13,25 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "headers": { "cache-control": "s-maxage=31536000,immutable" },
-      "dest": "/static/$1"
+      "source": "/api/:path*",
+      "destination": "https://web-production-8e7a6.up.railway.app/api/:path*"
     },
     {
-      "src": "/favicon.ico",
-      "dest": "/favicon.ico"
-    },
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
     {
-      "src": "/manifest.json",
-      "dest": "/manifest.json"
-    },
-    {
-      "src": "/logo192.png",
-      "dest": "/logo192.png"
-    },
-    {
-      "src": "/logo512.png",
-      "dest": "/logo512.png"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "s-maxage=31536000,immutable"
+        }
+      ]
     }
   ]
 }

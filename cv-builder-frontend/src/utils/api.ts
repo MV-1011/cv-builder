@@ -1,12 +1,12 @@
 // API configuration for different environments
 const getApiUrl = (): string => {
-  // In production, use same origin (since backend serves frontend)
-  if (process.env.NODE_ENV === 'production') {
-    return window.location.origin;
+  // Always use the environment variable if it's set
+  if (process.env.REACT_APP_API_URL) {
+    return process.env.REACT_APP_API_URL;
   }
   
-  // In development, use environment variable or default
-  return process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  // Fallback to localhost for development
+  return 'http://localhost:8000';
 };
 
 export const API_BASE_URL = getApiUrl();
