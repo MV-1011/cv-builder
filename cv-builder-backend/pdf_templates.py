@@ -12,30 +12,6 @@ import os
 from datetime import datetime
 import tempfile
 
-class BlackHeaderBackground(Flowable):
-    """Custom flowable for black header background"""
-    def __init__(self, width, height, content_elements):
-        Flowable.__init__(self)
-        self.width = width
-        self.height = height
-        self.content_elements = content_elements
-    
-    def draw(self):
-        # Draw black background
-        self.canv.saveState()
-        self.canv.setFillColor(colors.HexColor('#1a1a1a'))
-        self.canv.rect(-0.75*inch, -0.5*inch, self.width + 1.5*inch, self.height + 0.5*inch, fill=1, stroke=0)
-        
-        # Draw gold accent line at bottom
-        self.canv.setStrokeColor(colors.HexColor('#8b7355'))
-        self.canv.setLineWidth(3)
-        self.canv.line(-0.75*inch, -0.5*inch, self.width + 0.75*inch, -0.5*inch)
-        self.canv.restoreState()
-        
-        # Draw the content on top
-        for element in self.content_elements:
-            element.drawOn(self.canv, 0, self.height - element.height)
-            self.height -= element.height
 
 def get_legal_professional_styles():
     """Styles for Legal Professional Template"""
@@ -45,10 +21,10 @@ def get_legal_professional_styles():
     styles['name'] = ParagraphStyle(
         'LegalName',
         fontSize=22,
-        textColor=colors.white,
+        textColor=colors.HexColor('#1a1a1a'),
         spaceAfter=6,
         alignment=TA_CENTER,
-        fontName='Times-Roman',
+        fontName='Times-Bold',
         leading=26
     )
     
@@ -66,7 +42,7 @@ def get_legal_professional_styles():
     styles['contact'] = ParagraphStyle(
         'LegalContact',
         fontSize=10,
-        textColor=colors.white,
+        textColor=colors.HexColor('#1a1a1a'),
         alignment=TA_CENTER,
         fontName='Times-Roman'
     )
@@ -553,37 +529,29 @@ def generate_template_pdf(resume_data, template_data):
         # Personal Info Section
         personal_info = resume_data.get("personal_info", {})
         
-        # For Legal Professional template, create header with black background
+        # For Legal Professional template, use standard layout but with special styling
         if str(template_id) == '11':
-            # Create header content
-            header_content = []
-            
             # Name
             name_text = personal_info.get("full_name", "").upper()
-            name_para = Paragraph(name_text, styles['name'])
+            story.append(Paragraph(name_text, styles['name']))
             
             # Designation
-            designation_para = Paragraph("LEGAL PROFESSIONAL", styles['designation'])
+            story.append(Paragraph("LEGAL PROFESSIONAL", styles['designation']))
+            story.append(Spacer(1, 0.1*inch))
             
             # Contact info
             contact_parts = []
             if personal_info.get("email"):
-                contact_parts.append(personal_info["email"])
+                contact_parts.append(f"Email: {personal_info['email']}")
             if personal_info.get("phone"):
-                contact_parts.append(personal_info["phone"])
-            if personal_info.get("address"):
-                contact_parts.append(personal_info["address"])
+                contact_parts.append(f"Phone: {personal_info['phone']}")
+            if personal_info.get("city") and personal_info.get("country"):
+                contact_parts.append(f"Address: {personal_info['city']}, {personal_info['country']}")
             
-            contact_text = " | ".join(contact_parts) if contact_parts else ""
-            contact_para = Paragraph(contact_text, styles['contact'])
+            if contact_parts:
+                for contact_part in contact_parts:
+                    story.append(Paragraph(contact_part, styles['contact']))
             
-            # Create black header with content
-            header = BlackHeaderBackground(
-                doc.width,
-                2.5*inch,  # Header height
-                [name_para, designation_para, Spacer(1, 0.1*inch), contact_para]
-            )
-            story.append(header)
             story.append(Spacer(1, 0.3*inch))
         else:
             # Standard header for other templates
