@@ -41,10 +41,9 @@ app = FastAPI(title="CV Builder API", version="1.0.0", lifespan=lifespan)
 
 origins = [
     "http://localhost:3000",
-    "https://localhost:3000", 
-    "https://*.railway.app",
-    "https://*.vercel.app",
-    "https://*.netlify.app",
+    "https://localhost:3000",
+    "https://cv-builder-two-mu.vercel.app",
+    "https://web-production-8e7a6.up.railway.app",
     os.getenv("FRONTEND_URL", "http://localhost:3000")
 ]
 
