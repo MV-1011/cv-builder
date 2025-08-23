@@ -47,14 +47,21 @@ async def create_resume(resume: Resume, db = Depends(get_database)):
     
     # Remove the _id field if it exists (let MongoDB generate it)
     if "_id" in resume_dict:
+        print(f"Removing existing _id: {resume_dict['_id']}")
         del resume_dict["_id"]
     
+    print(f"Inserting resume with template_id: {resume_dict.get('template_id')}")
+    
     result = await db["resumes"].insert_one(resume_dict)
+    print(f"Inserted resume with ID: {result.inserted_id}")
+    
     created_resume = await db["resumes"].find_one({"_id": result.inserted_id})
     
     # Ensure _id is properly converted to string
     if created_resume and "_id" in created_resume:
+        print(f"Converting ObjectId to string: {created_resume['_id']}")
         created_resume["_id"] = str(created_resume["_id"])
+        print(f"Final resume ID: {created_resume['_id']}")
     
     return created_resume
 
