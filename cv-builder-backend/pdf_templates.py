@@ -1,15 +1,41 @@
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter, A4
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer, PageBreak, KeepTogether, Flowable
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT, TA_JUSTIFY
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
+from reportlab.platypus.flowables import HRFlowable
 from io import BytesIO
 import os
 from datetime import datetime
 import tempfile
+
+class BlackHeaderBackground(Flowable):
+    """Custom flowable for black header background"""
+    def __init__(self, width, height, content_elements):
+        Flowable.__init__(self)
+        self.width = width
+        self.height = height
+        self.content_elements = content_elements
+    
+    def draw(self):
+        # Draw black background
+        self.canv.saveState()
+        self.canv.setFillColor(colors.HexColor('#1a1a1a'))
+        self.canv.rect(-0.75*inch, -0.5*inch, self.width + 1.5*inch, self.height + 0.5*inch, fill=1, stroke=0)
+        
+        # Draw gold accent line at bottom
+        self.canv.setStrokeColor(colors.HexColor('#8b7355'))
+        self.canv.setLineWidth(3)
+        self.canv.line(-0.75*inch, -0.5*inch, self.width + 0.75*inch, -0.5*inch)
+        self.canv.restoreState()
+        
+        # Draw the content on top
+        for element in self.content_elements:
+            element.drawOn(self.canv, 0, self.height - element.height)
+            self.height -= element.height
 
 def get_legal_professional_styles():
     """Styles for Legal Professional Template"""
@@ -247,21 +273,6 @@ def get_template_styles(template_id):
     style_func = template_map.get(str(template_id), get_minimalist_styles)
     return style_func()
 
-def create_header_with_background(canvas, doc, resume_data, template_id):
-    """Create a custom header with background color for certain templates"""
-    
-    if str(template_id) == '11':  # Legal Professional
-        # Draw black background
-        canvas.saveState()
-        canvas.setFillColor(colors.HexColor('#1a1a1a'))
-        canvas.rect(0, doc.height - 120, doc.width + doc.leftMargin + doc.rightMargin, 120, fill=1)
-        
-        # Draw gold accent line
-        canvas.setStrokeColor(colors.HexColor('#8b7355'))
-        canvas.setLineWidth(3)
-        canvas.line(doc.leftMargin, doc.height - 120, 
-                   doc.width + doc.leftMargin, doc.height - 120)
-        canvas.restoreState()
 
 def generate_template_pdf(resume_data, template_data):
     """Generate a PDF with template-specific styling"""
@@ -277,50 +288,65 @@ def generate_template_pdf(resume_data, template_data):
         # Get template-specific styles
         styles = get_template_styles(template_id)
         
-        # Create document with custom pagesize
-        if str(template_id) == '11':  # Legal Professional needs custom header
-            doc = SimpleDocTemplate(
-                filepath, 
-                pagesize=A4,
-                topMargin=1.5*inch,  # More space for header
-                bottomMargin=0.75*inch,
-                leftMargin=0.75*inch,
-                rightMargin=0.75*inch
-            )
-        else:
-            doc = SimpleDocTemplate(filepath, pagesize=A4)
+        # Create document
+        doc = SimpleDocTemplate(filepath, pagesize=A4)
         
         story = []
         
         # Personal Info Section
         personal_info = resume_data.get("personal_info", {})
         
-        # For Legal Professional template, we need special header handling
+        # For Legal Professional template, create header with black background
         if str(template_id) == '11':
-            # The header will be drawn on the canvas, so we just add spacing
+            # Create header content
+            header_content = []
+            
+            # Name
+            name_text = personal_info.get("full_name", "").upper()
+            name_para = Paragraph(name_text, styles['name'])
+            
+            # Designation
+            designation_para = Paragraph("LEGAL PROFESSIONAL", styles['designation'])
+            
+            # Contact info
+            contact_parts = []
+            if personal_info.get("email"):
+                contact_parts.append(personal_info["email"])
+            if personal_info.get("phone"):
+                contact_parts.append(personal_info["phone"])
+            if personal_info.get("address"):
+                contact_parts.append(personal_info["address"])
+            
+            contact_text = " | ".join(contact_parts) if contact_parts else ""
+            contact_para = Paragraph(contact_text, styles['contact'])
+            
+            # Create black header with content
+            header = BlackHeaderBackground(
+                doc.width,
+                2.5*inch,  # Header height
+                [name_para, designation_para, Spacer(1, 0.1*inch), contact_para]
+            )
+            story.append(header)
             story.append(Spacer(1, 0.3*inch))
-        
-        # Name
-        name_text = personal_info.get("full_name", "").upper() if str(template_id) == '11' else personal_info.get("full_name", "")
-        story.append(Paragraph(name_text, styles['name']))
-        
-        # Add designation for legal template
-        if str(template_id) == '11' and 'designation' in styles:
-            story.append(Paragraph("LEGAL PROFESSIONAL", styles['designation']))
-        
-        # Contact info
-        contact_parts = []
-        if personal_info.get("email"):
-            contact_parts.append(personal_info["email"])
-        if personal_info.get("phone"):
-            contact_parts.append(personal_info["phone"])
-        if personal_info.get("address"):
-            contact_parts.append(personal_info["address"])
-        
-        if contact_parts:
-            contact_text = " | ".join(contact_parts)
-            story.append(Paragraph(contact_text, styles['contact']))
-            story.append(Spacer(1, 0.2*inch))
+        else:
+            # Standard header for other templates
+            # Name
+            name_text = personal_info.get("full_name", "")
+            story.append(Paragraph(name_text, styles['name']))
+            
+            # Contact info
+            contact_parts = []
+            if personal_info.get("email"):
+                contact_parts.append(personal_info["email"])
+            if personal_info.get("phone"):
+                contact_parts.append(personal_info["phone"])
+            if personal_info.get("address"):
+                contact_parts.append(personal_info["address"])
+            
+            if contact_parts:
+                contact_text = " | ".join(contact_parts)
+                story.append(Paragraph(contact_text, styles['contact']))
+                story.append(Spacer(1, 0.2*inch))
         
         # Professional Summary
         if personal_info.get("summary"):
@@ -392,11 +418,7 @@ def generate_template_pdf(resume_data, template_data):
                 story.append(Spacer(1, 0.1*inch))
         
         # Build the PDF
-        if str(template_id) == '11':
-            # For Legal Professional, use custom canvas
-            doc.build(story, onFirstPage=lambda c,d: create_header_with_background(c,d,resume_data,template_id))
-        else:
-            doc.build(story)
+        doc.build(story)
         
         return filepath
     except Exception as e:
