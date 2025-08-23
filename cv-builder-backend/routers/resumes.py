@@ -16,6 +16,12 @@ async def get_resumes(user_id: str = None, db = Depends(get_database)):
     if user_id:
         query["user_id"] = user_id
     resumes = await db["resumes"].find(query).to_list(100)
+    
+    # Ensure _id is properly converted to string for each resume
+    for resume in resumes:
+        if "_id" in resume:
+            resume["_id"] = str(resume["_id"])
+    
     return resumes
 
 @router.get("/{resume_id}", response_model=Resume)
@@ -26,6 +32,11 @@ async def get_resume(resume_id: str, db = Depends(get_database)):
     resume = await db["resumes"].find_one({"_id": ObjectId(resume_id)})
     if not resume:
         raise HTTPException(status_code=404, detail="Resume not found")
+    
+    # Ensure _id is properly converted to string
+    if "_id" in resume:
+        resume["_id"] = str(resume["_id"])
+    
     return resume
 
 @router.post("/", response_model=Resume)
@@ -34,8 +45,17 @@ async def create_resume(resume: Resume, db = Depends(get_database)):
     resume_dict["created_at"] = datetime.utcnow()
     resume_dict["updated_at"] = datetime.utcnow()
     
+    # Remove the _id field if it exists (let MongoDB generate it)
+    if "_id" in resume_dict:
+        del resume_dict["_id"]
+    
     result = await db["resumes"].insert_one(resume_dict)
     created_resume = await db["resumes"].find_one({"_id": result.inserted_id})
+    
+    # Ensure _id is properly converted to string
+    if created_resume and "_id" in created_resume:
+        created_resume["_id"] = str(created_resume["_id"])
+    
     return created_resume
 
 @router.put("/{resume_id}", response_model=Resume)
@@ -55,6 +75,11 @@ async def update_resume(resume_id: str, resume: Resume, db = Depends(get_databas
         raise HTTPException(status_code=404, detail="Resume not found")
     
     updated_resume = await db["resumes"].find_one({"_id": ObjectId(resume_id)})
+    
+    # Ensure _id is properly converted to string
+    if updated_resume and "_id" in updated_resume:
+        updated_resume["_id"] = str(updated_resume["_id"])
+    
     return updated_resume
 
 @router.delete("/{resume_id}")
