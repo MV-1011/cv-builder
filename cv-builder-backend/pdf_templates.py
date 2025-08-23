@@ -204,6 +204,255 @@ def get_minimalist_styles():
     
     return styles
 
+def get_academic_scholar_styles():
+    """Styles for Academic Scholar Template"""
+    styles = {}
+    
+    styles['name'] = ParagraphStyle(
+        'AcademicName',
+        fontSize=18,
+        textColor=colors.HexColor('#2c3e50'),
+        spaceAfter=4,
+        alignment=TA_CENTER,
+        fontName='Times-Bold'
+    )
+    
+    styles['contact'] = ParagraphStyle(
+        'AcademicContact',
+        fontSize=9,
+        textColor=colors.HexColor('#555555'),
+        alignment=TA_CENTER,
+        fontName='Times-Roman'
+    )
+    
+    styles['heading'] = ParagraphStyle(
+        'AcademicHeading',
+        fontSize=12,
+        textColor=colors.HexColor('#2c3e50'),
+        spaceAfter=6,
+        spaceBefore=10,
+        fontName='Times-Bold',
+        borderWidth=1,
+        borderColor=colors.HexColor('#2c3e50'),
+        borderPadding=2
+    )
+    
+    styles['normal'] = ParagraphStyle(
+        'AcademicNormal',
+        fontSize=10,
+        textColor=colors.HexColor('#333333'),
+        spaceAfter=3,
+        fontName='Times-Roman',
+        alignment=TA_JUSTIFY
+    )
+    
+    styles['jobtitle'] = ParagraphStyle(
+        'AcademicJobTitle',
+        fontSize=11,
+        textColor=colors.HexColor('#2c3e50'),
+        spaceAfter=2,
+        fontName='Times-Bold'
+    )
+    
+    return styles
+
+def get_tech_sidebar_styles():
+    """Styles for Tech Sidebar Template"""
+    styles = {}
+    
+    styles['name'] = ParagraphStyle(
+        'TechName',
+        fontSize=22,
+        textColor=colors.HexColor('#0066cc'),
+        spaceAfter=6,
+        alignment=TA_LEFT,
+        fontName='Helvetica-Bold'
+    )
+    
+    styles['contact'] = ParagraphStyle(
+        'TechContact',
+        fontSize=9,
+        textColor=colors.HexColor('#666666'),
+        alignment=TA_LEFT,
+        fontName='Courier'
+    )
+    
+    styles['heading'] = ParagraphStyle(
+        'TechHeading',
+        fontSize=13,
+        textColor=colors.HexColor('#0066cc'),
+        spaceAfter=8,
+        spaceBefore=12,
+        fontName='Helvetica-Bold',
+        borderWidth=0,
+        leftIndent=10
+    )
+    
+    styles['normal'] = ParagraphStyle(
+        'TechNormal',
+        fontSize=10,
+        textColor=colors.HexColor('#333333'),
+        spaceAfter=4,
+        fontName='Helvetica'
+    )
+    
+    styles['jobtitle'] = ParagraphStyle(
+        'TechJobTitle',
+        fontSize=11,
+        textColor=colors.HexColor('#0066cc'),
+        spaceAfter=2,
+        fontName='Helvetica-Bold'
+    )
+    
+    return styles
+
+def get_professional_accountant_styles():
+    """Styles for Professional Accountant Template"""
+    styles = {}
+    
+    styles['name'] = ParagraphStyle(
+        'AccountantName',
+        fontSize=20,
+        textColor=colors.HexColor('#1a472a'),
+        spaceAfter=6,
+        alignment=TA_CENTER,
+        fontName='Times-Bold'
+    )
+    
+    styles['contact'] = ParagraphStyle(
+        'AccountantContact',
+        fontSize=9,
+        textColor=colors.HexColor('#495057'),
+        alignment=TA_CENTER,
+        fontName='Times-Roman'
+    )
+    
+    styles['heading'] = ParagraphStyle(
+        'AccountantHeading',
+        fontSize=12,
+        textColor=colors.HexColor('#1a472a'),
+        spaceAfter=6,
+        spaceBefore=10,
+        fontName='Times-Bold',
+        borderWidth=2,
+        borderColor=colors.HexColor('#1a472a'),
+        borderPadding=3
+    )
+    
+    styles['normal'] = ParagraphStyle(
+        'AccountantNormal',
+        fontSize=10,
+        textColor=colors.HexColor('#212529'),
+        spaceAfter=3,
+        fontName='Times-Roman'
+    )
+    
+    styles['jobtitle'] = ParagraphStyle(
+        'AccountantJobTitle',
+        fontSize=11,
+        textColor=colors.HexColor('#1a472a'),
+        spaceAfter=2,
+        fontName='Times-Bold'
+    )
+    
+    return styles
+
+def get_sales_executive_styles():
+    """Styles for Sales Executive Template"""
+    styles = {}
+    
+    styles['name'] = ParagraphStyle(
+        'SalesName',
+        fontSize=24,
+        textColor=colors.HexColor('#d35400'),
+        spaceAfter=6,
+        alignment=TA_CENTER,
+        fontName='Helvetica-Bold'
+    )
+    
+    styles['contact'] = ParagraphStyle(
+        'SalesContact',
+        fontSize=10,
+        textColor=colors.HexColor('#7f8c8d'),
+        alignment=TA_CENTER,
+        fontName='Helvetica'
+    )
+    
+    styles['heading'] = ParagraphStyle(
+        'SalesHeading',
+        fontSize=14,
+        textColor=colors.HexColor('#d35400'),
+        spaceAfter=8,
+        spaceBefore=12,
+        fontName='Helvetica-Bold'
+    )
+    
+    styles['normal'] = ParagraphStyle(
+        'SalesNormal',
+        fontSize=10,
+        textColor=colors.HexColor('#34495e'),
+        spaceAfter=4,
+        fontName='Helvetica'
+    )
+    
+    styles['jobtitle'] = ParagraphStyle(
+        'SalesJobTitle',
+        fontSize=12,
+        textColor=colors.HexColor('#2c3e50'),
+        spaceAfter=2,
+        fontName='Helvetica-Bold'
+    )
+    
+    return styles
+
+def get_creative_portfolio_styles():
+    """Styles for Creative Portfolio Template"""
+    styles = {}
+    
+    styles['name'] = ParagraphStyle(
+        'PortfolioName',
+        fontSize=28,
+        textColor=colors.HexColor('#9b59b6'),
+        spaceAfter=8,
+        alignment=TA_LEFT,
+        fontName='Helvetica-Bold'
+    )
+    
+    styles['contact'] = ParagraphStyle(
+        'PortfolioContact',
+        fontSize=10,
+        textColor=colors.HexColor('#555555'),
+        alignment=TA_LEFT,
+        fontName='Helvetica-Oblique'
+    )
+    
+    styles['heading'] = ParagraphStyle(
+        'PortfolioHeading',
+        fontSize=15,
+        textColor=colors.HexColor('#9b59b6'),
+        spaceAfter=10,
+        spaceBefore=14,
+        fontName='Helvetica-Bold'
+    )
+    
+    styles['normal'] = ParagraphStyle(
+        'PortfolioNormal',
+        fontSize=10,
+        textColor=colors.HexColor('#333333'),
+        spaceAfter=4,
+        fontName='Helvetica'
+    )
+    
+    styles['jobtitle'] = ParagraphStyle(
+        'PortfolioJobTitle',
+        fontSize=12,
+        textColor=colors.HexColor('#8e44ad'),
+        spaceAfter=3,
+        fontName='Helvetica-Bold'
+    )
+    
+    return styles
+
 def get_creative_designer_styles():
     """Styles for Creative Designer Template"""
     styles = {}
@@ -257,16 +506,24 @@ def get_template_styles(template_id):
     
     # Map template IDs to style functions
     template_map = {
-        '11': get_legal_professional_styles,
         '2': get_modern_executive_styles,
         '3': get_creative_designer_styles,
         '4': get_minimalist_styles,
-        '5': get_minimalist_styles,  # Academic Scholar
-        '6': get_modern_executive_styles,  # Tech Sidebar
-        '7': get_creative_designer_styles,  # Creative Portfolio
-        '8': get_modern_executive_styles,
-        '9': get_minimalist_styles,  # Professional Accountant
-        '10': get_modern_executive_styles,  # Sales Executive
+        '5': get_academic_scholar_styles,
+        '6': get_tech_sidebar_styles,
+        '7': get_creative_portfolio_styles,
+        '8': get_modern_executive_styles,  # Duplicate of 2
+        '9': get_professional_accountant_styles,
+        '10': get_sales_executive_styles,
+        '11': get_legal_professional_styles,
+        # Database template IDs
+        '68a309eb5bd4f4f3594268c9': get_creative_designer_styles,  # Creative from DB
+        '68a309eb5bd4f4f3594268ca': get_minimalist_styles,  # Minimalist from DB
+        '68a309eb5bd4f4f3594268cb': get_modern_executive_styles,  # Executive from DB
+        '68a309eb5bd4f4f3594268cc': get_tech_sidebar_styles,  # Tech Pro from DB
+        '68a3a104ca6b026875831f3f': get_professional_accountant_styles,  # Professional Accountant from DB
+        '68a3a111ca6b026875831f40': get_sales_executive_styles,  # Sales Executive from DB
+        '68a3a143ca6b026875831f41': get_legal_professional_styles,  # Legal Professional from DB
     }
     
     # Get the style function for this template
