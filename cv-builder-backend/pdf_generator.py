@@ -6,14 +6,20 @@ from reportlab.lib.units import inch
 from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT
 import os
 from datetime import datetime
+import tempfile
 
 def generate_pdf(resume_data, template_data):
-    filename = f"resume_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
-    filepath = os.path.join("/tmp", filename)
-    
-    doc = SimpleDocTemplate(filepath, pagesize=A4)
-    styles = getSampleStyleSheet()
-    story = []
+    try:
+        # Use tempfile for better cross-platform compatibility
+        temp_dir = tempfile.gettempdir()
+        filename = f"resume_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
+        filepath = os.path.join(temp_dir, filename)
+        
+        print(f"Generating PDF at: {filepath}")
+        
+        doc = SimpleDocTemplate(filepath, pagesize=A4)
+        styles = getSampleStyleSheet()
+        story = []
     
     name_style = ParagraphStyle(
         'CustomTitle',
@@ -119,5 +125,13 @@ def generate_pdf(resume_data, template_data):
             
             story.append(Spacer(1, 0.1*inch))
     
-    doc.build(story)
-    return filepath
+        try:
+            doc.build(story)
+            print(f"PDF generated successfully at: {filepath}")
+            return filepath
+        except Exception as build_error:
+            print(f"Error building PDF document: {str(build_error)}")
+            raise
+    except Exception as e:
+        print(f"Error in generate_pdf: {str(e)}")
+        raise
