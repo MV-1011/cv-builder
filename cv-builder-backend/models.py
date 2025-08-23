@@ -86,7 +86,7 @@ class Reference(BaseModel):
     relationship: Optional[str] = None
 
 class Resume(BaseModel):
-    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
+    id: Optional[PyObjectId] = Field(default=None, alias="_id")
     user_id: Optional[str] = None
     template_id: str
     personal_info: PersonalInfo
@@ -106,7 +106,7 @@ class Resume(BaseModel):
         json_encoders = {ObjectId: str}
 
 class Template(BaseModel):
-    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
+    id: Optional[PyObjectId] = Field(default=None, alias="_id")
     name: str
     description: str
     preview_image: Optional[str] = None
@@ -123,7 +123,7 @@ class Template(BaseModel):
         json_encoders = {ObjectId: str}
 
 class User(BaseModel):
-    id: Optional[PyObjectId] = Field(default_factory=PyObjectId, alias="_id")
+    id: Optional[PyObjectId] = Field(default=None, alias="_id")
     email: EmailStr
     username: str
     hashed_password: str
