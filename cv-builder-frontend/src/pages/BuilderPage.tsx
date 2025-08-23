@@ -176,47 +176,45 @@ const BuilderPage: React.FC = () => {
 
   return (
     <div className="builder-page">
-      <div className="builder-container">
-        <div className="builder-sidebar">
-          <div className="template-info">
-            <h2>CV Builder</h2>
-            <p>Template {templateId}</p>
-          </div>
-          
-          <nav className="builder-nav">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                className={`nav-item ${activeSection === section.id ? 'active' : ''}`}
-                onClick={() => setActiveSection(section.id)}
-              >
-                <span className="nav-icon">{section.icon}</span>
-                <span className="nav-label">{section.label}</span>
-              </button>
-            ))}
-          </nav>
-
-          <div className="builder-actions">
-            <button 
-              className="save-btn"
-              onClick={saveResume}
+      <div className="builder-sidebar">
+        <h2>CV Builder</h2>
+        <div className="builder-instructions">
+          <p>Template {templateId} - Fill out each section to create your professional resume.</p>
+        </div>
+        
+        <div className="section-tabs">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              className={`section-tab ${activeSection === section.id ? 'active' : ''}`}
+              onClick={() => setActiveSection(section.id)}
             >
-              Save & Preview
+              <span className="section-icon">{section.icon}</span>
+              <span>{section.label}</span>
             </button>
-            <button 
-              className="download-btn"
-              onClick={downloadPDF}
-            >
-              Download PDF
-            </button>
-          </div>
+          ))}
         </div>
 
-        <div className="builder-content">
-          <div className="form-section">
-            <h3>{sections.find(s => s.id === activeSection)?.label}</h3>
-            {renderForm()}
-          </div>
+        <div className="builder-actions">
+          <button 
+            className="save-btn"
+            onClick={saveResume}
+          >
+            Save & Preview
+          </button>
+          <button 
+            className="download-btn"
+            onClick={downloadPDF}
+          >
+            Download PDF
+          </button>
+        </div>
+      </div>
+
+      <div className="builder-content">
+        <div className="form-section">
+          <h3>{sections.find(s => s.id === activeSection)?.label}</h3>
+          {renderForm()}
         </div>
       </div>
     </div>
