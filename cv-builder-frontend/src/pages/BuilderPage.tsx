@@ -208,8 +208,6 @@ const BuilderPage: React.FC = () => {
         }
       };
       
-      console.log('Sending resume data:', cleanedData);
-      
       const response = await fetch(`${API_BASE_URL}/api/resumes/`, {
         method: 'POST',
         headers: {
@@ -220,8 +218,6 @@ const BuilderPage: React.FC = () => {
 
       if (response.ok) {
         const savedResume = await response.json();
-        console.log('Received saved resume:', savedResume);
-        console.log('Resume ID:', savedResume._id);
         navigate(`/preview/${savedResume._id}`);
       } else {
         const errorData = await response.json();

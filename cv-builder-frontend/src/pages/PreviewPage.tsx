@@ -12,7 +12,6 @@ const PreviewPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('PreviewPage - resumeId from URL:', resumeId);
     if (resumeId) {
       fetchResume();
     }
@@ -20,7 +19,6 @@ const PreviewPage: React.FC = () => {
 
   const fetchResume = async () => {
     try {
-      console.log('Fetching resume with ID:', resumeId);
       const response = await fetch(`${API_BASE_URL}/api/resumes/${resumeId}`);
       if (response.ok) {
         const data = await response.json();
@@ -34,7 +32,6 @@ const PreviewPage: React.FC = () => {
   };
 
   const handleDownload = () => {
-    console.log('Download clicked - resumeId:', resumeId);
     window.open(`${API_BASE_URL}/api/resumes/${resumeId}/download`, '_blank');
   };
 

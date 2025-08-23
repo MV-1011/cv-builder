@@ -15,8 +15,6 @@ def generate_pdf(resume_data, template_data):
         filename = f"resume_{datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf"
         filepath = os.path.join(temp_dir, filename)
         
-        print(f"Generating PDF at: {filepath}")
-        
         doc = SimpleDocTemplate(filepath, pagesize=A4)
         styles = getSampleStyleSheet()
         story = []
@@ -125,13 +123,7 @@ def generate_pdf(resume_data, template_data):
                 
                 story.append(Spacer(1, 0.1*inch))
         
-        try:
-            doc.build(story)
-            print(f"PDF generated successfully at: {filepath}")
-            return filepath
-        except Exception as build_error:
-            print(f"Error building PDF document: {str(build_error)}")
-            raise
+        doc.build(story)
+        return filepath
     except Exception as e:
-        print(f"Error in generate_pdf: {str(e)}")
         raise

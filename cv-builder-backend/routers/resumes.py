@@ -47,21 +47,14 @@ async def create_resume(resume: Resume, db = Depends(get_database)):
     
     # Remove the _id field if it exists (let MongoDB generate it)
     if "_id" in resume_dict:
-        print(f"Removing existing _id: {resume_dict['_id']}")
         del resume_dict["_id"]
     
-    print(f"Inserting resume with template_id: {resume_dict.get('template_id')}")
-    
     result = await db["resumes"].insert_one(resume_dict)
-    print(f"Inserted resume with ID: {result.inserted_id}")
-    
     created_resume = await db["resumes"].find_one({"_id": result.inserted_id})
     
     # Ensure _id is properly converted to string
     if created_resume and "_id" in created_resume:
-        print(f"Converting ObjectId to string: {created_resume['_id']}")
         created_resume["_id"] = str(created_resume["_id"])
-        print(f"Final resume ID: {created_resume['_id']}")
     
     return created_resume
 
@@ -111,9 +104,29 @@ async def download_resume(resume_id: str, format: str = "pdf", db = Depends(get_
         if not resume:
             raise HTTPException(status_code=404, detail="Resume not found")
         
-        template = await db["templates"].find_one({"_id": ObjectId(resume["template_id"])})
+        # Try to find template - handle both ObjectId and string template_id
+        template = None
+        template_id = resume.get("template_id")
+        
+        if template_id:
+            # First try as ObjectId if it's valid
+            if ObjectId.is_valid(template_id):
+                template = await db["templates"].find_one({"_id": ObjectId(template_id)})
+            
+            # If not found or not valid ObjectId, try as string ID or name
+            if not template:
+                template = await db["templates"].find_one({
+                    "$or": [
+                        {"_id": template_id},
+                        {"name": template_id},
+                        {"template_number": template_id}
+                    ]
+                })
+        
+        # If still no template found, use a default template or skip template-specific formatting
         if not template:
-            raise HTTPException(status_code=404, detail="Template not found")
+            print(f"Warning: Template not found for ID {template_id}, using default")
+            template = {"name": "default", "settings": {}}
         
         if format.lower() == "pdf":
             try:
@@ -127,12 +140,10 @@ async def download_resume(resume_id: str, format: str = "pdf", db = Depends(get_
                     headers={"Content-Disposition": f"attachment; filename=resume_{resume_id}.pdf"}
                 )
             except Exception as pdf_error:
-                print(f"PDF generation error: {str(pdf_error)}")
                 raise HTTPException(status_code=500, detail=f"PDF generation failed: {str(pdf_error)}")
         else:
             raise HTTPException(status_code=400, detail="Unsupported format")
     except HTTPException:
         raise
     except Exception as e:
-        print(f"Download error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Download failed: {str(e)}")
